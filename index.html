@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Victoria — Joyería & Moda</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-casa">CASA</span>
+      <span class="logo-victoria">VICTORIA</span>
+      <span class="logo-sub">JOYERÍA & MODA</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#promo">Novedades</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#tallas">Tallas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#promo"    onclick="closeMenu()">Novedades</a>
+    <a href="#catalogo" onclick="closeMenu()">Catálogo</a>
+    <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
+    <a href="#tallas"   onclick="closeMenu()">Tallas</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-bg-text">VICTORIA</div>
+    <div class="hero-content">
+      <p class="tag-pill">✦ Nueva Colección 2026</p>
+      <h1>Moda y Joyería que te<br><em>define</em></h1>
+      <p class="hero-desc">Ropa femenina, aretes, cadenas y pulseras seleccionadas con amor. Calidad, estilo y elegancia en cada pieza.</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-gold">Ver Catálogo</a>
+        <a href="#nosotros" class="btn-ghost">Conocernos</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-ring">
+        <span>Honduras</span>
+        <span class="dot">·</span>
+        <span>Joyería & Moda</span>
+        <span class="dot">·</span>
+        <span>2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BANNER PROMO ===== -->
+  <section class="promo-banner" id="promo">
+    <div class="promo-inner">
+      <div class="promo-tag">🔥 Novedad</div>
+      <div class="promo-text">
+        <h2>Colección de Temporada</h2>
+        <p>Ropa, aretes, cadenas y pulseras recién llegados. Escríbenos por WhatsApp y pregunta por disponibilidad.</p>
+      </div>
+      <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20ver%20la%20colecci%C3%B3n%20nueva%20%F0%9F%8C%9F" target="_blank" class="btn-white">
+        Ver novedades →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CATÁLOGO ===== -->
+  <section class="catalog" id="catalogo">
+    <div class="section-head">
+      <p class="section-tag">Nuestra Selección</p>
+      <h2>Catálogo</h2>
+      <p class="section-desc">Cada pieza es seleccionada pensando en ti. Haz clic en "Comprar" para escribirnos directo.</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <button class="filtro active" onclick="filtrar(this,'todos')">Todos</button>
+      <button class="filtro" onclick="filtrar(this,'ropa')">Ropa</button>
+      <button class="filtro" onclick="filtrar(this,'aretes')">Aretes</button>
+      <button class="filtro" onclick="filtrar(this,'cadenas')">Cadenas</button>
+      <button class="filtro" onclick="filtrar(this,'pulseras')">Pulseras</button>
+    </div>
+
+    <div class="productos" id="productosGrid">
+
+      <!-- ROPA -->
+      <div class="card" data-cat="ropa">
+        <div class="card-img-wrap">
+          <img src="img/ropa1.jpg" alt="Vestido Elegante" loading="lazy">
+          <span class="card-badge">Popular</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Ropa</p>
+          <h3>Vestido Elegante</h3>
+          <p class="card-price">L 500</p>
+          <button class="btn-wa" onclick="comprar('Vestido Elegante','L 500')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="ropa">
+        <div class="card-img-wrap">
+          <img src="img/ropa2.jpg" alt="Blusa Casual" loading="lazy">
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Ropa</p>
+          <h3>Blusa Casual</h3>
+          <p class="card-price">L 300</p>
+          <button class="btn-wa" onclick="comprar('Blusa Casual','L 300')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="ropa">
+        <div class="card-img-wrap">
+          <img src="img/ropa3.jpg" alt="Conjunto Moderno" loading="lazy">
+          <span class="card-badge nuevo">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Ropa</p>
+          <h3>Conjunto Moderno</h3>
+          <p class="card-price">L 650</p>
+          <button class="btn-wa" onclick="comprar('Conjunto Moderno','L 650')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="ropa">
+        <div class="card-img-wrap">
+          <img src="img/ropa4.jpg" alt="Vestido de Noche" loading="lazy">
+          <span class="card-badge nuevo">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Ropa</p>
+          <h3>Vestido de Noche</h3>
+          <p class="card-price">L 750</p>
+          <button class="btn-wa" onclick="comprar('Vestido de Noche','L 750')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <!-- ARETES -->
+      <div class="card" data-cat="aretes">
+        <div class="card-img-wrap">
+          <img src="img/aretes1.jpg" alt="Aretes Dorados" loading="lazy">
+          <span class="card-badge">Popular</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Aretes</p>
+          <h3>Aretes Dorados</h3>
+          <p class="card-price">L 150</p>
+          <button class="btn-wa" onclick="comprar('Aretes Dorados','L 150')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="aretes">
+        <div class="card-img-wrap">
+          <img src="img/aretes2.jpg" alt="Aretes Elegantes" loading="lazy">
+          <span class="card-badge nuevo">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Aretes</p>
+          <h3>Aretes Elegantes</h3>
+          <p class="card-price">L 200</p>
+          <button class="btn-wa" onclick="comprar('Aretes Elegantes','L 200')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="aretes">
+        <div class="card-img-wrap">
+          <img src="img/aretes3.jpg" alt="Aretes Perla" loading="lazy">
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Aretes</p>
+          <h3>Aretes Perla</h3>
+          <p class="card-price">L 180</p>
+          <button class="btn-wa" onclick="comprar('Aretes Perla','L 180')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <!-- CADENAS -->
+      <div class="card" data-cat="cadenas">
+        <div class="card-img-wrap">
+          <img src="img/cadena1.jpg" alt="Cadena Fina Dorada" loading="lazy">
+          <span class="card-badge">Popular</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Cadenas</p>
+          <h3>Cadena Fina Dorada</h3>
+          <p class="card-price">L 250</p>
+          <button class="btn-wa" onclick="comprar('Cadena Fina Dorada','L 250')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="cadenas">
+        <div class="card-img-wrap">
+          <img src="img/cadena2.jpg" alt="Cadena Gruesa" loading="lazy">
+          <span class="card-badge nuevo">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Cadenas</p>
+          <h3>Cadena Gruesa</h3>
+          <p class="card-price">L 350</p>
+          <button class="btn-wa" onclick="comprar('Cadena Gruesa','L 350')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="cadenas">
+        <div class="card-img-wrap">
+          <img src="img/cadena3.jpg" alt="Cadena con Dije" loading="lazy">
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Cadenas</p>
+          <h3>Cadena con Dije</h3>
+          <p class="card-price">L 300</p>
+          <button class="btn-wa" onclick="comprar('Cadena con Dije','L 300')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <!-- PULSERAS -->
+      <div class="card" data-cat="pulseras">
+        <div class="card-img-wrap">
+          <img src="img/pulsera1.jpg" alt="Pulsera Dorada" loading="lazy">
+          <span class="card-badge">Popular</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Pulseras</p>
+          <h3>Pulsera Dorada</h3>
+          <p class="card-price">L 180</p>
+          <button class="btn-wa" onclick="comprar('Pulsera Dorada','L 180')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="pulseras">
+        <div class="card-img-wrap">
+          <img src="img/pulsera2.jpg" alt="Pulsera de Dijes" loading="lazy">
+          <span class="card-badge nuevo">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Pulseras</p>
+          <h3>Pulsera de Dijes</h3>
+          <p class="card-price">L 220</p>
+          <button class="btn-wa" onclick="comprar('Pulsera de Dijes','L 220')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="pulseras">
+        <div class="card-img-wrap">
+          <img src="img/pulsera3.jpg" alt="Pulsera Tejida" loading="lazy">
+        </div>
+        <div class="card-info">
+          <p class="card-cat">Pulseras</p>
+          <h3>Pulsera Tejida</h3>
+          <p class="card-price">L 150</p>
+          <button class="btn-wa" onclick="comprar('Pulsera Tejida','L 150')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SOBRE NOSOTROS ===== -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-inner">
+      <div class="nosotros-text">
+        <p class="section-tag">Nuestra Historia</p>
+        <h2>Sobre<br><em>Nosotros</em></h2>
+        <p>Casa Victoria nació con una misión simple: <strong>hacer que cada persona se sienta increíble</strong>. Somos una tienda hondureña con amor por la moda, la joyería y el buen gusto.</p>
+        <p>Seleccionamos cada prenda y accesorio con cuidado — ropa femenina, aretes, cadenas y pulseras pensadas para la mujer moderna que quiere verse bien sin complicaciones. Calidad real, precios justos y atención personalizada.</p>
+        <div class="nos-stats">
+          <div class="stat">
+            <span class="stat-n">500+</span>
+            <span class="stat-l">Clientas felices</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">3+</span>
+            <span class="stat-l">Años en moda</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">100%</span>
+            <span class="stat-l">Atención directa</span>
+          </div>
+        </div>
+      </div>
+      <div class="nosotros-visual">
+        <div class="visual-card vc1">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+          <p>Moda auténtica</p>
+        </div>
+        <div class="visual-card vc2">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <p>Joyería premium</p>
+        </div>
+        <div class="visual-card vc3">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <p>Hecho con amor</p>
+        </div>
+        <div class="visual-card vc4">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <p>Envío rápido</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GUÍA DE TALLAS ===== -->
+  <section class="tallas" id="tallas">
+    <div class="section-head">
+      <p class="section-tag">Sin confusiones</p>
+      <h2>Guía de Tallas</h2>
+      <p class="section-desc">Encuentra tu talla perfecta. Si tienes dudas escríbenos y te asesoramos con gusto.</p>
+    </div>
+    <div class="tallas-wrap">
+      <div class="tallas-table-wrap">
+        <table class="tallas-table">
+          <thead>
+            <tr>
+              <th>Talla</th>
+              <th>Busto (cm)</th>
+              <th>Cintura (cm)</th>
+              <th>Cadera (cm)</th>
+              <th>Equivalente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XS</td><td>80–84</td><td>60–64</td><td>86–90</td><td>32 / 0–2</td></tr>
+            <tr><td>S</td><td>84–88</td><td>64–68</td><td>90–94</td><td>34 / 4–6</td></tr>
+            <tr class="highlight"><td>M</td><td>88–92</td><td>68–72</td><td>94–98</td><td>36 / 8–10</td></tr>
+            <tr><td>L</td><td>92–96</td><td>72–76</td><td>98–102</td><td>38 / 12</td></tr>
+            <tr><td>XL</td><td>96–100</td><td>76–80</td><td>102–106</td><td>40 / 14</td></tr>
+            <tr><td>XXL</td><td>100–106</td><td>80–86</td><td>106–112</td><td>42 / 16</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tallas-tips">
+        <h3>¿Cómo medirte?</h3>
+        <ul>
+          <li><strong>Busto:</strong> Mide alrededor de la parte más ancha del pecho.</li>
+          <li><strong>Cintura:</strong> Mide la parte más delgada de tu torso.</li>
+          <li><strong>Cadera:</strong> Mide alrededor de la parte más ancha de tus caderas.</li>
+        </ul>
+        <p class="tip-nota">💬 ¿Entre dos tallas? Te recomendamos elegir la más grande para mayor comodidad.</p>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Necesito%20ayuda%20con%20mi%20talla%20en%20Casa%20Victoria" target="_blank" class="btn-gold" style="margin-top:1.5rem;display:inline-flex;align-items:center;gap:0.5rem;">
+          Pregunta tu talla →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTAGRAM ===== -->
+  <section class="ig-section" id="instagram">
+    <div class="ig-inner">
+      <div class="ig-text">
+        <p class="section-tag light">Síguenos</p>
+        <h2>@casavictoriahn</h2>
+        <p>Mira nuestras novedades cada día, outfits del día, joyería nueva y promociones exclusivas en Instagram.</p>
+        <a href="https://www.instagram.com/casavictoriahn" target="_blank" class="btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+          Ver Instagram
+        </a>
+      </div>
+      <div class="ig-grid">
+        <div class="ig-cell"></div>
+        <div class="ig-cell"></div>
+        <div class="ig-cell"></div>
+        <div class="ig-cell"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contacto" id="contacto">
+    <div class="section-head">
+      <p class="section-tag">Estamos para ti</p>
+      <h2>Contáctanos</h2>
+    </div>
+    <div class="contacto-grid">
+      <div class="c-card">
+        <div class="c-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>Escríbenos directamente para hacer tu pedido o consultar disponibilidad.</p>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola%20Casa%20Victoria!%20%F0%9F%91%8B" target="_blank" class="btn-gold">Escribir ahora</a>
+      </div>
+      <div class="c-card">
+        <div class="c-icon ig-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h4>Instagram</h4>
+        <p>Síguenos para ver las últimas prendas, accesorios nuevos y ofertas especiales.</p>
+        <a href="https://www.instagram.com/casavictoriahn" target="_blank" class="btn-gold">@casavictoriahn</a>
+      </div>
+      <div class="c-card">
+        <div class="c-icon loc-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+        </div>
+        <h4>Ubicación</h4>
+        <p>Basadas en Honduras. Realizamos envíos a todo el país con entrega rápida.</p>
+        <span class="btn-gold" style="cursor:default;opacity:0.8;">Honduras 🇭🇳</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="https://wa.me/504XXXXXXXX?text=Hola%20Casa%20Victoria!%20Quiero%20hacer%20un%20pedido%20%F0%9F%9B%8D%EF%B8%8F" target="_blank" class="wa-cta">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hacer mi pedido por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo">CASA VICTORIA</p>
+        <p class="footer-tagline">Joyería & Moda ✦</p>
+      </div>
+      <div class="footer-links-col">
+        <p class="footer-col-title">Secciones</p>
+        <a href="#promo">Novedades</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#tallas">Tallas</a>
+      </div>
+      <div class="footer-links-col">
+        <p class="footer-col-title">Contacto</p>
+        <a href="https://www.instagram.com/casavictoriahn" target="_blank">Instagram</a>
+        <a href="https://wa.me/50495616113" target="_blank">WhatsApp</a>
+        <span>Honduras 🇭🇳</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Casa Victoria · Todos los derechos reservados · Honduras</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
